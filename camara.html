@@ -4,12 +4,12 @@
 	<title>camara1</title>
 	<link href="/css/style.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/peer.js"></script>
+	<script type="text/javascript" src="/js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/lib/peer.js"></script>
 	<script>
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-		var peer = new Peer({host: 'localhost', port: 9000, path: '/'});
+		var peer = new Peer({debug: true, host: 'localhost', port: 9000, path: '/'});
 
 		peer.on('open', function(){
 			$('#my-id').text(peer.id);
@@ -20,8 +20,6 @@
 			$('#make-call').click(function(){
 				// Initiate a call!
 				var call = peer.call($('#callto-id').val(), window.localStream);
-
-				step3(call);
 			});
 
 			$('#end-call').click(function(){
@@ -41,7 +39,7 @@
 
 		function step1 () {
 			// Get audio/video stream
-			navigator.getUserMedia({audio: true, video: true}, function(stream){
+			navigator.getUserMedia({audio: false, video: true}, function(stream){
 				// Set your video displays
 				// $('#my-video').prop('src', URL.createObjectURL(stream));
 
@@ -53,25 +51,6 @@
 		function step2 () {
 			$('#step1, #step3').hide();
 			$('#step2').show();
-		}
-
-		function step3 (call) {
-			// Hang up on an existing call if present
-			if (window.existingCall) {
-				window.existingCall.close();
-			}
-
-			// Wait for stream on the call, then set peer video display
-			call.on('stream', function(stream){
-				$('#their-video').prop('src', URL.createObjectURL(stream));
-			});
-
-			// UI stuff
-			window.existingCall = call;
-			$('#their-id').text(call.peer);
-			call.on('close', step2);
-			$('#step1, #step2').hide();
-			$('#step3').show();
 		}
 	</script>
 </head>

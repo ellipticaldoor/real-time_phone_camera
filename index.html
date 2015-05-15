@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>web_camera</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/open_sans.css" type="text/css" charset="utf-8">
+	<link rel="stylesheet" href="/css/style.css" type="text/css" charset="utf-8">
+	<script type="text/javascript" src="/js/lib/zepto_1.1.6.min.js"></script>
+	<script type="text/javascript" src="/js/lib/peer.js"></script>
+	<script type="text/javascript" src="/js/camara.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<div id="menu">
+			<span id="camera_1" class="button camera_select" href="#">1</span>
+			<span id="camera_2" class="button camera_select" href="#">2</span>
+			<span id="camera_3" class="button camera_select" href="#">3</span>
+			<span id="screen_button" class="button screen_select" href="#">pantalla</span>
+		</div>
+
+		<div id="camera">
+			<p id="camera_number">0</p>
+			<p id="camera_id">id</p>
+			<video autoplay="" id="my_video" class="video"></video>
+			<div id="options">
+				<span id="connect" class="button">conectar</span>
+				<span id="disconnect" class="button">desconectar</span>
+			</div>
+			<input id="call_id" placeholder="call" type="text" value="pantalla1">
+		</div>
+	</div>
+</body>
+</html>

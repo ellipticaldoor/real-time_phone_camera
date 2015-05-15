@@ -1,0 +1,129 @@
+/* general
+__________________________________________________________________________ */
+
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.separator {
+	height: 1px;
+	width: 100%;
+	background-color: black;
+	margin: 18px 0px 18px 0px;
+}
+
+#app {
+	padding: 30px;
+}
+
+
+/* typography
+__________________________________________________________________________ */
+
+html, body, textarea, input {
+	font-family: 'Open Sans';
+	text-rendering: optimizeLegibility;
+	font-size: 100%;
+	color: #8E8E93;
+}
+
+a {
+	color: #34AADC;
+	text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+h4 { font-weight: normal; }
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.selected {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+
+/* media
+__________________________________________________________________________ */
+
+.button {
+	text-align: center;
+	display: block;
+	border: 1px solid #8E8E93;
+	width: 100%;
+	margin: 15px 0px 15px 0px;
+	padding: 10px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+
+/* menu
+__________________________________________________________________________ */
+
+#menu {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.screen_select {
+	margin-top: 20px;
+	border: 1px double #8E8E93;
+	border-width: 3px;
+}
+
+
+/* camera
+__________________________________________________________________________ */
+
+#camera {
+	display: none;
+	text-align: center;	
+}
+
+#my_video {
+	height: calc( 100vh - 60px - 150px );
+	width: 100%;
+}
+
+#connect {
+	border: 3px solid #FF9500;
+	color: #FF9500;
+}
+
+#disconnect {
+	display: none;
+	border: 3px solid #FF2A68;
+	color: #FF2A68;
+}
+
+#camera_id { margin-bottom: 5px; }
+
+#call_id { display: none; }
+
+
+/* screen
+__________________________________________________________________________ */
+
+#screens {}
+
+.video {
+	border: 1px solid #8E8E93;
+	background-color: #F7F7F7;
+}
+
+.three {
+	height: calc( 100vh - 70px );
+	width: calc( ((100vw - 60px)/3) - 10px);
+	float: left;
+	margin: 5px;
+}
+
