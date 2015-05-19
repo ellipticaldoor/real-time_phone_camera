@@ -1,7 +1,8 @@
 function connect_to_camera() {
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-	var peer = new Peer({debug: true, host: 'localhost', port: 9000, path: '/'});
+	// var peer = new Peer({debug: true, host: 'localhost', port: 9000, path: '/'});
+	var peer = new Peer({debug: true, host: '172.26.0.36', port: 9000, path: '/'});
 
 	peer.on('open', function(){ camera_id.textContent = peer.id; });
 
@@ -15,14 +16,37 @@ function connect_to_camera() {
 		);
 
 	connect.addEventListener('click', function() {
-		var call = peer.call($('#call_id').val(), window.localStream);
+		//var call = peer.call($('#call_id').val(), window.localStream);
+
+		if (actual_camera == 1) {
+			var call = peer.call($('#call_id_1').val(), window.localStream);
+		}
+		else if (actual_camera == 2) {
+			var call = peer.call($('#call_id_2').val(), window.localStream);
+		}
+		else if (actual_camera == 3) {
+			var call = peer.call($('#call_id_3').val(), window.localStream);
+		}
 
 		connect.style.display = 'none';
 		disconnect.style.display = 'block';
 	});
 
 	disconnect.addEventListener('click', function() {
-		var call = peer.call($('#call_id').val(), window.localStream);
+		// var call = peer.call($('#call_id').val(), window.localStream);
+
+		if (actual_camera == 1) {
+			var call = peer.call($('#call_id_1').val(), window.localStream);
+			console.log('connect_1');
+		}
+		else if (actual_camera == 2) {
+			var call = peer.call($('#call_id_2').val(), window.localStream);
+			console.log('connect_2');
+		}
+		else if (actual_camera == 3) {
+			var call = peer.call($('#call_id_3').val(), window.localStream);
+			console.log('connect_3');
+		}
 
 		connect.style.display = 'block';
 		disconnect.style.display = 'none';

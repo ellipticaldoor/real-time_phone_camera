@@ -15,8 +15,15 @@ __________________________________________________________________________ */
 	margin: 18px 0px 18px 0px;
 }
 
-#app {
+#app { padding: 35px; }
+
+#screen_app {
+	overflow: auto;
 	padding: 30px;
+	/*background-color: #8E8E93;*/
+	background-color: black;
+	width: 100vw;
+	height: 100vh;
 }
 
 
@@ -107,7 +114,7 @@ __________________________________________________________________________ */
 
 #camera_id { margin-bottom: 5px; }
 
-#call_id { display: none; }
+.call_id { display: none; }
 
 
 /* screen
@@ -115,15 +122,37 @@ __________________________________________________________________________ */
 
 #screens {}
 
+.screen_id {
+	display: none;
+	color:  white;
+	float: left;
+	width: calc( ((100vw - 60px)/3));
+}
+
 .video {
-	border: 1px solid #8E8E93;
-	background-color: #F7F7F7;
+	/*border: 1px solid white;*/
+	background-color: black;
+}
+
+/*#screen_1 { border: 2px solid #34AADC;}
+#screen_2 { border: 2px solid #FF3A2D;}
+#screen_3 { border: 2px solid #4CD964;}*/
+
+.one {
+	height: calc( 100vh - 70px );
+	width: 100%;
+	float: left;
+}
+
+
+.two {
+	height: calc( 100vh - 70px );
+	width: calc( ((100vw - 60px)/2));
+	float: left;
 }
 
 .three {
 	height: calc( 100vh - 70px );
-	width: calc( ((100vw - 60px)/3) - 10px);
+	width: calc( ((100vw - 60px)/3));
 	float: left;
-	margin: 5px;
 }
-
