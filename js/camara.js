@@ -1,12 +1,35 @@
 function connect_to_camera() {
+	// select camera
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-	// var peer = new Peer({debug: true, host: 'localhost', port: 9000, path: '/'});
-	var peer = new Peer({debug: true, host: '172.26.0.36', port: 9000, path: '/'});
+	var videoSelect = document.querySelector('select#videoSource');
 
-	peer.on('open', function(){ camera_id.textContent = peer.id; });
+	function gotSources(sourceInfos) {
+		for (var i = 0; i !== sourceInfos.length; ++i) {
+			var sourceInfo = sourceInfos[i];
+			var option = document.createElement('option');
+			console.log(sourceInfo);
 
-	navigator.getUserMedia(
+			if (sourceInfo.kind === 'video') {
+				option.text = sourceInfo.label || 'camera ' + (videoSelect.length + 1);
+				videoSelect.appendChild(option);
+			}
+		}
+	}
+
+	MediaStreamTrack.getSources(gotSources);
+
+	// peer connection
+	var peer = new Peer({host: 'localhost', port: 9000, path: '/'});
+	//var peer = new Peer({host: '192.168.1.35', port: 9000, path: '/'});
+
+	peer.on('open', function(){ console.log(peer.id); });
+
+	function start() {
+		var videoSource = videoSelect.value;
+		console.log(videoSelect.value)
+
+		navigator.getUserMedia(
 			{audio: false, video: true},
 			function(stream) {
 				$('#my_video').prop('src', URL.createObjectURL(stream));
@@ -14,6 +37,11 @@ function connect_to_camera() {
 			},
 			function() {console.log('camera error');}
 		);
+	}
+
+	videoSelect.onchange = start;
+
+	start();
 
 	connect.addEventListener('click', function() {
 		//var call = peer.call($('#call_id').val(), window.localStream);
@@ -28,28 +56,7 @@ function connect_to_camera() {
 			var call = peer.call($('#call_id_3').val(), window.localStream);
 		}
 
-		connect.style.display = 'none';
-		disconnect.style.display = 'block';
-	});
-
-	disconnect.addEventListener('click', function() {
-		// var call = peer.call($('#call_id').val(), window.localStream);
-
-		if (actual_camera == 1) {
-			var call = peer.call($('#call_id_1').val(), window.localStream);
-			console.log('connect_1');
-		}
-		else if (actual_camera == 2) {
-			var call = peer.call($('#call_id_2').val(), window.localStream);
-			console.log('connect_2');
-		}
-		else if (actual_camera == 3) {
-			var call = peer.call($('#call_id_3').val(), window.localStream);
-			console.log('connect_3');
-		}
-
-		connect.style.display = 'block';
-		disconnect.style.display = 'none';
+		// connect.style.display = 'none';
 	});
 }
 
@@ -57,6 +64,21 @@ function connect_to_camera() {
 var actual_camera = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
+	// full screen
+	var requestFullscreen = function (ele) {
+		if (ele.requestFullscreen) {ele.requestFullscreen();}
+		else if (ele.webkitRequestFullscreen) { ele.webkitRequestFullscreen(); }
+		else if (ele.mozRequestFullScreen) { ele.mozRequestFullScreen(); }
+		else if (ele.msRequestFullscreen) { ele.msRequestFullscreen(); }
+		else { console.log('Fullscreen API is not supported.'); }
+	};
+
+	var full_screen = document.getElementById('full_screen');
+
+	full_screen.addEventListener('click', function() {
+		requestFullscreen(document.documentElement);
+	});
+
 	var menu = document.getElementById('menu');
 	var camera = document.getElementById('camera');
 
@@ -72,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// buttons
 	var connect = document.getElementById('connect');
-	var disconnect = document.getElementById('disconnect');
 
 	camera_1.addEventListener('click', function() {
 		actual_camera = 1;

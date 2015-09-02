@@ -15,13 +15,20 @@ __________________________________________________________________________ */
 	margin: 18px 0px 18px 0px;
 }
 
-#app { padding: 35px; }
+.menu_separator {
+	height: 1px;
+	width: 100%;
+	border-bottom: 1px dashed #007AFF;
+	margin: 18px 0px 18px 0px;
+}
+
+
+#app { padding: 10px; }
 
 #screen_app {
 	overflow: auto;
-	padding: 30px;
-	/*background-color: #8E8E93;*/
-	background-color: black;
+/*	background-color: #8E8E93;*/
+/*	background-color: black;*/
 	width: 100vw;
 	height: 100vh;
 }
@@ -81,8 +88,8 @@ __________________________________________________________________________ */
 	margin: 0 auto;
 }
 
-.screen_select {
-	margin-top: 20px;
+.link_select {
+	margin: 25px 0px 20px 0px;
 	border: 1px double #8E8E93;
 	border-width: 3px;
 }
@@ -96,25 +103,69 @@ __________________________________________________________________________ */
 	text-align: center;	
 }
 
+#my_video_container {
+/*	overflow: hidden;
+	height: calc( 100vh - 60px - 150px );
+	width: 100%;*/
+}
+
 #my_video {
 	height: calc( 100vh - 60px - 150px );
-	width: 100%;
+	width: 100%;*/
+/*	position: relative;
+	height: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  */
+}
+
+#video {
+	height: calc( 100vh );
+	width: 100%;*/
+/*	position: relative;
+	height: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  */
 }
 
 #connect {
 	border: 3px solid #FF9500;
 	color: #FF9500;
-}
-
-#disconnect {
-	display: none;
-	border: 3px solid #FF2A68;
-	color: #FF2A68;
+	width: 50px;
+	margin: 0 auto;
 }
 
 #camera_id { margin-bottom: 5px; }
 
+#camera_number {
+	font-size: 170%;
+	margin-bottom: 10px;
+	color: black;
+}
+
 .call_id { display: none; }
+
+#full_screen {
+	color: #FF9500;
+	border: 1px solid #FF9500;
+}
+
+
+#camera_1 { 
+	color: #34AADC;
+	border: 2px solid #34AADC;
+}
+
+#camera_2 { 
+	color: #007AFF;
+	border: 2px solid #007AFF;
+}
+
+#camera_3 { 
+	color: #5856D6;
+	border: 2px solid #5856D6;
+}
 
 
 /* screen
@@ -124,35 +175,99 @@ __________________________________________________________________________ */
 
 .screen_id {
 	display: none;
-	color:  white;
+	color:  black;
 	float: left;
-	width: calc( ((100vw - 60px)/3));
+	width: calc( ((100vw )/3));
 }
 
 .video {
-	/*border: 1px solid white;*/
+	/*border: 1px solid black;*/
 	background-color: black;
+	border-bottom: 110px solid black;
 }
 
 /*#screen_1 { border: 2px solid #34AADC;}
-#screen_2 { border: 2px solid #FF3A2D;}
-#screen_3 { border: 2px solid #4CD964;}*/
+#screen_2 { border: 2px solid #007AFF;}
+#screen_3 { border: 2px solid #5856D6;}*/
+
 
 .one {
-	height: calc( 100vh - 70px );
-	width: 100%;
+/*	border: 120px solid black;
+	border-bottom: 310px solid black;*/
+	height: 100vh;
+	width: 100vw;
 	float: left;
 }
 
 
 .two {
-	height: calc( 100vh - 70px );
-	width: calc( ((100vw - 60px)/2));
+	height: 100vh;
+	width: calc(100vw / 2);
 	float: left;
 }
 
 .three {
-	height: calc( 100vh - 70px );
-	width: calc( ((100vw - 60px)/3));
+	height: 100vh;
+	width: calc(100vw / 3);
 	float: left;
+}
+
+#screen_4 {
+	display: none;
+/*	border: 2px solid red;*/
+	overflow: auto;
+}
+
+
+/* remote
+__________________________________________________________________________ */
+
+#remote {
+	overflow: auto;
+	width: 100vw;
+	height: 100vh;
+	background-color: #F7F7F7;
+}
+
+#remote span {
+	text-align: center;
+	background-color: black;
+	display: block;
+	cursor: pointer; 
+	border: 2px solid #C7C7CC;
+	color: #C7C7CC;
+	border-radius: 2px;
+	margin: 10px;
+	padding: 15px;
+}
+
+#remote span:active {
+	background-color: #D1EEFC !important;
+}
+
+.remote_section {
+	border-top: 1px dashed #C7C7CC;
+	overflow: auto;
+	width: 100%;
+	padding: 10px;
+}
+
+#hide {
+	border: 2px solid #8E8E93 !important;
+	color: #8E8E93 !important;
+}
+
+#screen_1_select{
+	border: 3px solid #34AADC !important;
+	color: #34AADC !important;	
+}
+
+#screen_2_select{
+	border: 3px solid #007AFF !important;
+	color: #007AFF !important;	
+}
+
+#screen_3_select{
+	border: 3px solid #5856D6 !important;
+	color: #5856D6 !important;	
 }
