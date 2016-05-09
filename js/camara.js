@@ -21,7 +21,7 @@ function connect_to_camera() {
 
 	// peer connection
 	var peer = new Peer({host: 'localhost', port: 9000, path: '/'});
-	//var peer = new Peer({host: '192.168.1.35', port: 9000, path: '/'});
+	// var peer = new Peer({host: '172.18.172.250', port: 9000, path: '/'});
 
 	peer.on('open', function(){ console.log(peer.id); });
 

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// screen 1
 	var peer = new Peer('pantalla1', {debug: true, host: 'localhost', port: 9000, path: '/'});
+	// var peer = new Peer('pantalla1', {debug: true, host: '172.18.172.250', port: 9000, path: '/'});
 
 	peer.on('open', function(){
 		$('#screen_1_id').text(peer.id);
