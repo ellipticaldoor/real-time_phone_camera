@@ -66,47 +66,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		//change video
 		// a
-		if (event.keyCode == 65) { 
+		if (event.keyCode == 65) {
 			actual_video = 1;
 			change_video();
 		}
 		// s
-		if (event.keyCode == 83) { 
+		if (event.keyCode == 83) {
 			actual_video = 2;
 			change_video();
 		}
 		// d
-		if (event.keyCode == 68) { 
+		if (event.keyCode == 68) {
 			actual_video = 3;
 			change_video();
 		}
 		// f
-		if (event.keyCode == 70) { 
+		if (event.keyCode == 70) {
 			actual_video = 4;
 			change_video();
 		}
 		// g
-		if (event.keyCode == 71) { 
+		if (event.keyCode == 71) {
 			actual_video = 5;
 			change_video();
 		}
 		// h
-		if (event.keyCode == 72) { 
+		if (event.keyCode == 72) {
 			actual_video = 6;
 			change_video();
 		}
 		// z
-		if (event.keyCode == 90) { 
+		if (event.keyCode == 90) {
 			actual_video = 7;
 			change_video();
 		}
 		// x
-		if (event.keyCode == 88) { 
+		if (event.keyCode == 88) {
 			actual_video = 8;
 			change_video();
 		}
 		// 0
-		if (event.keyCode == 79) { 
+		if (event.keyCode == 79) {
 			actual_video = 10;
 			change_video();
 		}
@@ -117,35 +117,35 @@ function change_video() {
 	switch(actual_video) {
 		case 1:
 			// a
-			$('#video_play').attr('src', '/video/1_introduccion.mp4');
+			$('#video_play').attr('src', '/video/video_1.mp4');
 			break;
 		case 2:
 			// s
-			$('#video_play').attr('src', '/video/2_inicio_fiesta.mp4');
+			$('#video_play').attr('src', '/video/video_2.mp4');
 			break;
 		case 3:
 			// d
-			$('#video_play').attr('src', '/video/3_carta_alba.mp4');
+			$('#video_play').attr('src', '/video/video_3.mp4');
 			break;
 		case 4:
 			// f
-			$('#video_play').attr('src', '/video/4_despues_de_la_fiesta.mp4');
+			$('#video_play').attr('src', '/video/video_4.mp4');
 			break;
 		case 5:
 			// g
-			$('#video_play').attr('src', '/video/5_carretera.mp4');
+			$('#video_play').attr('src', '/video/video_5.mp4');
 			break;
 		case 6:
 			// h
-			$('#video_play').attr('src', '/video/6_plano_final_luisa.mp4');
+			$('#video_play').attr('src', '/video/video_6.mp4');
 			break;
 		case 7:
 			// z
-			$('#video_play').attr('src', '/video/prima_donna.mp3');
+			$('#video_play').attr('src', '/video/video_7.mp3');
 			break;
 		case 8:
 			// x
-			$('#video_play').attr('src', '/video/liza.mp3');
+			$('#video_play').attr('src', '/video/video_8.mp3');
 			break;
 		case 10:
 			// o
